@@ -1,0 +1,15 @@
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.DAL\bin\Debug\net8.0\FUMiniTikiSystem.DAL.deps.json
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.DAL\bin\Debug\net8.0\FUMiniTikiSystem.DAL.runtimeconfig.json
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.DAL\bin\Debug\net8.0\FUMiniTikiSystem.DAL.dll
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.DAL\bin\Debug\net8.0\FUMiniTikiSystem.DAL.pdb
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.DAL\obj\Debug\net8.0\FUMiniTikiSystem.DAL.csproj.AssemblyReference.cache
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.DAL\obj\Debug\net8.0\FUMiniTikiSystem.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.DAL\obj\Debug\net8.0\FUMiniTikiSystem.DAL.AssemblyInfoInputs.cache
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.DAL\obj\Debug\net8.0\FUMiniTikiSystem.DAL.AssemblyInfo.cs
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.DAL\obj\Debug\net8.0\FUMiniTikiSystem.DAL.csproj.CoreCompileInputs.cache
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.DAL\obj\Debug\net8.0\FUMiniTikiSystem.DAL.sourcelink.json
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.DAL\obj\Debug\net8.0\FUMiniTikiSystem.DAL.dll
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.DAL\obj\Debug\net8.0\refint\FUMiniTikiSystem.DAL.dll
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.DAL\obj\Debug\net8.0\FUMiniTikiSystem.DAL.pdb
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.DAL\obj\Debug\net8.0\FUMiniTikiSystem.DAL.genruntimeconfig.cache
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.DAL\obj\Debug\net8.0\ref\FUMiniTikiSystem.DAL.dll

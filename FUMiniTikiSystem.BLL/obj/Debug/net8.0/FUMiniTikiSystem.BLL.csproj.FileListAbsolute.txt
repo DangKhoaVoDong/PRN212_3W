@@ -1,0 +1,16 @@
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.BLL\bin\Debug\net8.0\FUMiniTikiSystem.BLL.deps.json
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.BLL\bin\Debug\net8.0\FUMiniTikiSystem.BLL.dll
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.BLL\bin\Debug\net8.0\FUMiniTikiSystem.BLL.pdb
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.BLL\bin\Debug\net8.0\FUMiniTikiSystem.DAL.dll
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.BLL\bin\Debug\net8.0\FUMiniTikiSystem.DAL.pdb
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.BLL\obj\Debug\net8.0\FUMiniTikiSystem.BLL.csproj.AssemblyReference.cache
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.BLL\obj\Debug\net8.0\FUMiniTikiSystem.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.BLL\obj\Debug\net8.0\FUMiniTikiSystem.BLL.AssemblyInfoInputs.cache
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.BLL\obj\Debug\net8.0\FUMiniTikiSystem.BLL.AssemblyInfo.cs
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.BLL\obj\Debug\net8.0\FUMiniTikiSystem.BLL.csproj.CoreCompileInputs.cache
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.BLL\obj\Debug\net8.0\FUMiniTikiSystem.BLL.sourcelink.json
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.BLL\obj\Debug\net8.0\FUMiniTi.32235327.Up2Date
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.BLL\obj\Debug\net8.0\FUMiniTikiSystem.BLL.dll
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.BLL\obj\Debug\net8.0\refint\FUMiniTikiSystem.BLL.dll
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.BLL\obj\Debug\net8.0\FUMiniTikiSystem.BLL.pdb
+C:\Users\VTS\Documents\GitHub\PRN212-FUMiniTikiSystem\GROUP7_SE1849_GASM\FUMiniTikiSystem.BLL\obj\Debug\net8.0\ref\FUMiniTikiSystem.BLL.dll
