@@ -1,0 +1,63 @@
+# ========================
+# Visual Studio
+# ========================
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Bb]in/
+[Oo]bj/
+*.dll
+*.exe
+*.pdb
+*.appx
+*.vsix
+*.cache
+*.log
+
+# Dotnet generated
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Entity Framework
+Migrations/
+*.db
+
+# ASP.NET/WPF
+App_Data/
+*.cache
+*.csproj.user
+*.dbmdl
+*.jfm
+*.Publish.xml
+
+# Rider
+.idea/
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.old
+*.orig
+*.swp
+*~
+
+# npm / yarn / node (if ever used)
+node_modules/
+dist/
+.env
+
+# Others
+Thumbs.db
+Desktop.ini

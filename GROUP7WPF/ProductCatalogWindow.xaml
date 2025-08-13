@@ -1,0 +1,148 @@
+﻿<Window x:Class="GROUP7WPF.ProductCatalogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GROUP7WPF"
+        mc:Ignorable="d"
+        Title="Product Catalog" Height="500" Width="1200"
+        WindowStartupLocation="CenterScreen"
+        Background="#f5f5f5">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Top controls -->
+            <RowDefinition Height="*"/>
+            <!-- Main content -->
+            <RowDefinition Height="Auto"/>
+            <!-- Logout button -->
+        </Grid.RowDefinitions>
+
+        <!-- Top Control Panel -->
+        <DockPanel Grid.Row="0" LastChildFill="False" Margin="0 0 0 10">
+            <!-- Giữ nguyên như bạn đã có -->
+            <!-- Left: Search -->
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
+                <TextBox x:Name="txtSearch" Width="200" Height="30" Margin="0,0,10,0"
+                     VerticalContentAlignment="Center"/>
+                <ComboBox x:Name="cbCategory" Width="200" Height="30" Margin="0,0,10,0" 
+                      DisplayMemberPath="Name"/>
+                <Button Content="Search" Height="30" Width="80" Margin="0,0,10,0"
+                    Background="#007ACC" Foreground="White"
+                    Click="Search_Click"/>
+            </StackPanel>
+
+            <!-- Right: Category and Order buttons -->
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+                <Button x:Name="btnCategoryManager" Content="Category Manager"
+                    Height="30" Width="130" Margin="10,0,0,0"
+                    Background="#6f42c1" Foreground="White"
+                    Click="CategoryManager_Click"/>
+                <Button x:Name="btnViewOrderDetail" Content="View Orders"
+                    Height="30" Width="100" Margin="10,0,0,0"
+                    Background="#20c997" Foreground="White"
+                    Click="ViewOrderDetail_Click"/>
+            </StackPanel>
+
+            <!-- Center: CRUD Buttons -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="btnAddCategory" Content="Add" Height="30" Width="80"
+                    Background="#28a745" Foreground="White" Margin="5,0"
+                    Click="AddProduct_Click"/>
+                <Button x:Name="btnEditCategory" Content="Edit" Height="30" Width="80"
+                    Background="#ffc107" Foreground="Black" Margin="5,0"
+                    Click="EditProduct_Click"/>
+                <Button x:Name="btnDeleteCategory" Content="Delete" Height="30" Width="80"
+                    Background="#dc3545" Foreground="White" Margin="5,0"
+                    Click="DeleteProduct_Click"/>
+            </StackPanel>
+        </DockPanel>
+
+        <!-- Main Content: Split 2 cột -->
+        <Grid Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Left: Product List -->
+            <Border x:Name="ListProductBorder" Grid.Column="0" Background="White" BorderBrush="#DDD"  BorderThickness="1" Padding="5" Grid.ColumnSpan="2" Margin="0,0,236,0">
+                <ListView x:Name="lvProducts" SelectionMode="Extended" 
+                      MouseDoubleClick="lvProducts_MouseDoubleClick" SelectionChanged="lvProducts_SelectionChanged" d:ItemsSource="{d:SampleData ItemCount=5}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="180"/>
+                            <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}" Width="100"/>
+                            <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" Width="300"/>
+                            <GridViewColumn Header="Category" DisplayMemberBinding="{Binding Category.Name}" Width="180"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Border>
+
+            <!-- Right: Selected Products and Payment -->
+            <Border x:Name="OrderBorder" Grid.Column="1" Background="White" BorderBrush="#DDD" BorderThickness="1" Padding="10">
+                <StackPanel>
+
+                    <TextBlock Text="Giỏ hàng" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+
+                    <!-- ListView Selected Products -->
+                    <ListView x:Name="lvSelectedProducts" Height="200" Margin="0,0,0,10" SelectionChanged="lvSelectedProducts_SelectionChanged">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Product.Name}" Width="140"/>
+                                <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Product.Price}" Width="80"/>
+                                <GridViewColumn Header="Quantity" Width="80">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBox Text="{Binding Quantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                                 HorizontalContentAlignment="Center" />
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Header="Total" Width="80">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding TotalPrice}" HorizontalAlignment="Right"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                    <!-- Tổng tiền -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,10">
+                        <TextBlock Text="Tổng tiền:" FontWeight="Bold" FontSize="14" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                        <TextBlock x:Name="txtTotalAmount" Text="0" FontWeight="Bold" FontSize="14" VerticalAlignment="Center"/>
+                    </StackPanel>
+
+                    <!-- Nhập tiền khách đưa -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,10">
+                        <TextBlock Text="Tiền khách đưa:" FontWeight="Bold" FontSize="14" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                        <TextBox x:Name="txtCashReceived" Width="120" HorizontalContentAlignment="Right" 
+                             TextChanged="txtCashReceived_TextChanged"/>
+                    </StackPanel>
+
+                    <!-- Tiền thừa -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock Text="Tiền thừa:" FontWeight="Bold" FontSize="14" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                        <TextBlock x:Name="txtChange" Text="0" FontWeight="Bold" FontSize="14" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button x:Name="btnConfirm" Content="Confirm" Height="30" Width="100"
+    Background="#343a40" Foreground="White"
+    Click="Logout_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,10,0,0">
+            <Button x:Name="btnLogout" Content="Logout" Height="30" Width="100"
+                Background="#343a40" Foreground="White"
+                Click="Logout_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
