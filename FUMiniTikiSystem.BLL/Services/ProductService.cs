@@ -50,6 +50,7 @@ namespace FUMiniTikiSystem.BLL.Services
                 oldProduct.Price = product.Price;
                 oldProduct.Name = product.Name;
                 oldProduct.Description = product.Description;
+                oldProduct.ImagePath = product.ImagePath;
                 await _unitOfWork.SaveChangesAsync();
             }
         }

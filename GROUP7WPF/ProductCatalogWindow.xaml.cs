@@ -15,9 +15,47 @@ using FUMiniTikiSystem.BLL.Services;
 using FUMiniTikiSystem.DAL.Entities;
 using FUMiniTikiSystem.DAL.Repositories;
 using FUMiniTikiSystem.DAL;
+using IOPath = System.IO.Path;
+using System.IO;
+using System.Globalization;
 
 namespace GROUP7WPF
 {
+    public class ImagePathConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value == null || string.IsNullOrWhiteSpace(value.ToString()))
+                return null;
+
+            string imagePath = value.ToString();
+            
+            try
+            {
+                if (File.Exists(imagePath))
+                {
+                    var bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmap.UriSource = new Uri(imagePath);
+                    bitmap.EndInit();
+                    return bitmap;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error loading image {imagePath}: {ex.Message}");
+            }
+
+            return null;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
     /// <summary>
     /// Interaction logic for ProductCatalogWindow.xaml
     /// </summary>
@@ -50,7 +88,16 @@ namespace GROUP7WPF
                     236,
                     ListProductBorder.Margin.Bottom);
             }
-            var dbContext1 = new FuminiTikiSystemContext(); // cho sản phẩm
+            else
+            {
+                ListProductBorder.Margin = new Thickness(
+                    ListProductBorder.Margin.Left,
+                    ListProductBorder.Margin.Top,
+                    10,
+                    ListProductBorder.Margin.Bottom);
+
+            }
+                var dbContext1 = new FuminiTikiSystemContext(); // cho sản phẩm
             var dbContext2 = new FuminiTikiSystemContext(); // cho danh mục
             _productService = new ProductService(new ProductRepository(dbContext1), new UnitOfWork(dbContext1));
             _categoryRepo = new CategoryRepository(dbContext2);
@@ -81,6 +128,33 @@ namespace GROUP7WPF
             _allProducts = await _productService.GetAllAsync(); // ✅ gán vào _allProducts
 
             lvProducts.ItemsSource = _allProducts;
+        }
+
+        private BitmapImage LoadImageSafely(string imagePath)
+        {
+            if (string.IsNullOrWhiteSpace(imagePath))
+                return null;
+
+            try
+            {
+                // Kiểm tra xem đường dẫn có tồn tại không
+                if (File.Exists(imagePath))
+                {
+                    var bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmap.UriSource = new Uri(imagePath);
+                    bitmap.EndInit();
+                    return bitmap;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log error if needed
+                System.Diagnostics.Debug.WriteLine($"Error loading image {imagePath}: {ex.Message}");
+            }
+
+            return null;
         }
 
         private void Search_Click(object sender, RoutedEventArgs e)

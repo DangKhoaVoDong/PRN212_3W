@@ -9,6 +9,10 @@
         WindowStartupLocation="CenterScreen"
         Background="#f5f5f5">
 
+    <Window.Resources>
+        <local:ImagePathConverter x:Key="ImagePathConverter"/>
+    </Window.Resources>
+
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -72,6 +76,31 @@
                       MouseDoubleClick="lvProducts_MouseDoubleClick" SelectionChanged="lvProducts_SelectionChanged" d:ItemsSource="{d:SampleData ItemCount=5}">
                     <ListView.View>
                         <GridView>
+                            <GridViewColumn Header="Image" Width="80">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Border Width="60" Height="60" BorderBrush="#DDD" BorderThickness="1" Background="#F5F5F5">
+                                            <Grid>
+                                                <Image Source="{Binding ImagePath, Converter={StaticResource ImagePathConverter}}" Width="60" Height="60" Stretch="UniformToFill" 
+                                                       RenderOptions.BitmapScalingMode="HighQuality"/>
+                                                <TextBlock Text="No Image" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                                           Foreground="#999" FontSize="10" TextWrapping="Wrap" TextAlignment="Center">
+                                                    <TextBlock.Style>
+                                                        <Style TargetType="TextBlock">
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding ImagePath, Converter={StaticResource ImagePathConverter}}" Value="{x:Null}">
+                                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                                        </Style>
+                                                    </TextBlock.Style>
+                                                </TextBlock>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
                             <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="180"/>
                             <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}" Width="100"/>
                             <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" Width="300"/>
