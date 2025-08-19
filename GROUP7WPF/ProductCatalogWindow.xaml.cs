@@ -29,7 +29,7 @@ namespace GROUP7WPF
                 return null;
 
             string imagePath = value.ToString();
-            
+
             try
             {
                 if (File.Exists(imagePath))
@@ -97,7 +97,7 @@ namespace GROUP7WPF
                     ListProductBorder.Margin.Bottom);
 
             }
-                var dbContext1 = new FuminiTikiSystemContext(); // cho sản phẩm
+            var dbContext1 = new FuminiTikiSystemContext(); // cho sản phẩm
             var dbContext2 = new FuminiTikiSystemContext(); // cho danh mục
             _productService = new ProductService(new ProductRepository(dbContext1), new UnitOfWork(dbContext1));
             _categoryRepo = new CategoryRepository(dbContext2);
@@ -106,7 +106,7 @@ namespace GROUP7WPF
             var repo = new ProductRepository(dbContext1);
             var unitOfWork = new UnitOfWork(dbContext1);
 
-             LoadAllProducts();
+            LoadAllProducts();
             LoadCategories();
         }
         private async void LoadCategories()
@@ -161,7 +161,7 @@ namespace GROUP7WPF
         {
             ApplyFilter();
         }
-        
+
 
         private void ApplyFilter()
         {
@@ -192,7 +192,7 @@ namespace GROUP7WPF
             var window = new AddProductWindow();
             if (window.ShowDialog() == true)
             {
-               await  LoadAllProducts(); // refresh lại danh sách
+                await LoadAllProducts(); // refresh lại danh sách
             }
         }
 
@@ -208,7 +208,7 @@ namespace GROUP7WPF
             var window = new AddProductWindow(selected);
             if (window.ShowDialog() == true)
             {
-                 LoadAllProducts(); // refresh
+                LoadAllProducts(); // refresh
             }
         }
 
@@ -255,7 +255,7 @@ namespace GROUP7WPF
             var result = MessageBox.Show("Are you sure you want to logout?", "Confirm Logout",
                                          MessageBoxButton.YesNo, MessageBoxImage.Question);
 
-            if(result == MessageBoxResult.Yes)
+            if (result == MessageBoxResult.Yes)
             {
                 var loginWindow = new LoginWindow();
                 loginWindow.Show();
@@ -312,6 +312,24 @@ namespace GROUP7WPF
         private void lvSelectedProducts_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void btnConfirm_Click(object sender, RoutedEventArgs e)
+        {
+            if (!decimal.TryParse(txtCashReceived.Text, out decimal cash))
+            {
+                MessageBox.Show("Vui lòng nhập số tiền khách đưa.");
+                return;
+            }
+
+            if (cartItems.Count == 0)
+            {
+                MessageBox.Show("Giỏ hàng đang trống.");
+                return;
+            }
+
+            var invoiceWindow = new InvoiceWindow(cartItems, cash);
+            invoiceWindow.ShowDialog();
         }
     }
 }

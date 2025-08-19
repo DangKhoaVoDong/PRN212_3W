@@ -162,7 +162,7 @@
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                         <Button x:Name="btnConfirm" Content="Confirm" Height="30" Width="100"
     Background="#343a40" Foreground="White"
-    Click="Logout_Click"/>
+    Click="btnConfirm_Click"/>
                     </StackPanel>
                 </StackPanel>
             </Border>
