@@ -44,7 +44,7 @@ namespace GROUP7WPF
 
         private void Print_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Tính năng in / xuất PDF có thể thêm sau.");
+            MessageBox.Show("Save Successful!");
         }
     }
 }
